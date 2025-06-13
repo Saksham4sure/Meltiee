@@ -4,7 +4,10 @@
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Cherry+Cream+Soda&family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Zetta:wght@100..900&family=Mrs+Saint+Delafield&family=Rouge+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Cherry+Cream+Soda&family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Zetta:wght@100..900&family=Mrs+Saint+Delafield&family=Rouge+Script&display=swap"
+    rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="/src/style.css" rel="stylesheet">
@@ -13,29 +16,22 @@
 
 <body class="bg-[#FEFBE6] text-[#2E2E2E] overflow-x-hidden">
   <!-- Menu -->
-  <div class="bg-[#393E46] text-[#DFD0B8] h-screen w-screen fixed hidden menu">
-    <div class="flex justify-between py-10 px-10 w-full">
-      <div class=""><h1 class="logo text-7xl cursor-pointer">Meltiee</h1></div>
-      <div class="close cursor-pointer"><i class="ri-close-large-fill text-3xl"></i></div>
-    </div>
+  <div
+    class="bg-[#393E46] flex items-center justify-center pt-14 text-[#DFD0B8] h-screen w-screen translate-y-[-100%] fixed z-40 menu">
 
     <div class="flex flex-col items-center justify-center">
       <div class="flex">
-        <div class="flex flex-col text-4xl gap-10 items-center w-full lexend">
-          <a href="#" class="menu-icons">Home</a>
-          <a href="#" class="menu-icons">Dishes</a>
-          <a href="#" class="menu-icons">Order</a>
-          <a href="#" class="menu-icons">Events</a>
-          <a href="#" class="menu-icons">Table</a>
+        <div class="flex flex-col text-4xl gap-10 items-center w-full ">
+          <a href="#" class="menu-icons uppercase font-['Oswald']">Home</a>
+          <a href="#" class="menu-icons uppercase font-['Oswald']">Dishes</a>
+          <a href="#" class="menu-icons uppercase font-['Oswald']">Order</a>
+          <a href="#" class="menu-icons uppercase font-['Oswald']">Events</a>
+          <a href="#" class="menu-icons uppercase font-['Oswald']">Table</a>
         </div>
       </div>
-  
+
       <div class="flex flex-col items-center justify-center gap-2 pt-16 sm:pt-10 px-6 font-light">
-        <div class="flex gap-4">
-          <a href="#" class="menu-icons2">Reviews</a>
-          <a href="#" class="menu-icons2">Galary</a>
-          <a href="#" class="menu-icons2">Visit</a>
-        </div>
+
         <p class="text-center menu-para">Simple. Sweet. Satisfying.</p>
       </div>
     </div>
@@ -44,7 +40,7 @@
 
 
   <!-- NAVBAR -->
-  <nav class="fixed flex justify-between w-full px-10 py-4 z-50">
+  <nav id="navbar" class="fixed text-[#2E2E2E] flex justify-between w-full px-10 py-4 z-50">
     <h1 class="logo text-5xl cursor-pointer nav-items">Meltiee</h1>
     <div class="flex items-center gap-5 text-xl">
       <p class="text-xl cursor-pointer nav-items"><i class="ri-store-2-line text-2xl"></i></p>
@@ -53,14 +49,15 @@
     </div>
   </nav>
 
-  <div class="bg-[#F6E8D7] text-[#2E2E2E] h-[83vh] sm:h-screen w-screen home relative overflow-hidden">
+  <div class="bg-[#F6E8D7] text-[#2E2E2E] h-[83vh] sm:h-screen w-screen home relative overflow-hidden z-10">
     <div
       class="text-7xl md:text-8xl w-full h-full flex flex-col items-center justify-center sm:justify-end cursor-default pt-32 sm:p-0">
       <h1 class="hero-text sm:pr-[250px] md:pr-[300px] z-50">Scoop</h1>
       <h1 class="hero-text  md:pr-[20px] z-50">Swirl</h1>
       <h1 class="hero-text sm:pl-[280px] z-50 sm:pb-10">Smile</h1>
       <div class="px-10 flex flex-col justify-end items-start w-full py-10 normal pt-20 sm:pt-0">
-        <p class="hero-para z-50 text-xl leading-5"> <span class="logo2 text-3xl">Meltiee</span> -where cravings come true.</p>
+        <p class="hero-para z-50 text-xl leading-5"> <span class="logo2 text-3xl">Meltiee</span> -where cravings come
+          true.</p>
         <p class="hero-para z-50 text-lg italic">Melts hearts, not just mouths...</p>
         <div class="z-50 text-lg pt-4 gap-2 ">
           <a class="rounded-2xl px-3 py-2 border border-[#2E2E2E] hero-but" href="#">Take a Bite</a>

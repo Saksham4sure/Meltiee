@@ -27,7 +27,6 @@ let limit = 80;
 let lastX = 0, lastY = 0;
 
 home.addEventListener("mousemove", (dets) => {
-
     if (lastX - dets.clientX > limit || lastX - dets.clientX < -limit || lastY - dets.clientY > limit || lastY - dets.clientY < -limit) {
         if (index < images.length) {
             let img = document.createElement("img")
@@ -82,13 +81,26 @@ gsap.from(".nav-items", {
     stagger: 0.1,
     ease: "power2.out",
 })
-
-gsap.from(".hero-text", {
+let tl = gsap.timeline()
+tl.set(".hero-text", {
+    y: 50,
+    opacity: 0
+})
+tl.to(".hero-text", {
     y: 100,
-    opacity: 0,
+    opacity: 1,
     duration: 1,
     stagger: 0.15,
-    delay: 0.1,
+    ease: "power2.inOut",
+})
+
+tl.to(".hero-text", {
+    y: 0,
+    delay: -0.7,
+    duration: 0.7,
+    stagger: 0.15,
+    rotate: 0,
+    x: 0,
     ease: "power2.inOut",
 })
 
@@ -109,68 +121,100 @@ gsap.from(".hero-but", {
 });
 
 
+(() => {
+    let clutter = ""
+    let menuPara = document.querySelector(".menu-para");
+    let menuParaText = menuPara.innerHTML;
+    menuParaText.split("").forEach((e) => {
+        if (e == " ") {
+            clutter += `<span class="menu-para-text inline-block">&nbsp;</span>`
+        } else {
+            clutter += `<span class="menu-para-text inline-block">${e}</span>`
+        }
+    })
+    menuPara.innerHTML = clutter;
+
+
+})()
 
 let burger = document.querySelector(".burger");
 let menu = document.querySelector(".menu");
-let close = document.querySelector(".close");
-let status = "close";
-let completed = true;
+let navbar = document.getElementById("navbar")
+let status = false
+burger.addEventListener("click", () => {
+    burger.style.pointerEvents = 'none'
+    if (status) {
+        // of Code
+
+        let lt = gsap.timeline({
+            onComplete: () => {
+                burger.style.pointerEvents = 'unset'
+
+            }
+        })
+        lt.to(".menu-para-text", {
+            filter: "blur(3px)",
+            y: `50%`,
+            opacity: 0,
+            stagger: 0.01
+        }, "b")
+        lt.to(".menu-icons", {
+            filter: "blur(3px)",
+            x: `-100%`,
+            opacity: 0,
+            stagger: 0.05
+        }, "b")
+
+        lt.to(navbar, {
+            color: '#2E2E2E'
+        }, "a")
+        lt.to(menu, {
+            y: `-100%`
+        }, "a")
+        status = !status
+    }
+    else {
+        //on Code
+        let tl = gsap.timeline({
+            onComplete: () => {
+                burger.style.pointerEvents = 'unset'
+
+            }
+        })
+        tl.set(".menu-icons", {
+            filter: "blur(7px)",
+            x: `-100%`,
+            opacity: 0
+        })
+        tl.set(".menu-para-text", {
+            filter: "blur(3px)",
+            y: `50%`,
+            opacity: 0
+        })
+
+        //off code
+        tl.to(navbar, {
+            color: '#DFD0B8'
+        }, "a")
+        tl.to(menu, {
+            y: 0
+        }, "a")
+        tl.to(".menu-icons", {
+            filter: `blur(0px)`,
+            x: 0,
+            opacity: 1,
+            stagger: 0.05
+        })
+        tl.to(".menu-para-text", {
+            filter: `blur(0px)`,
+            y: 0,
+            opacity: 1,
+            stagger: 0.01
+        })
 
 
+        status = !status
+    }
 
-
-// burger.addEventListener('click', () => {
-
-//         if (status == "close") {
-//             menu.classList.remove("hidden");
-
-//             let tl = gsap.timeline({
-//                 onComplete: () => {
-//                     completed = true;
-//                 }
-//             });
-
-//             tl.from(".menu", {
-//                 y: -800,
-//                 duration: 0.4,
-//                 ease: "power2.out",
-//             })
-//             tl.from(".menu-icons", {
-//                 x: -150,
-//                 duration: 1,
-//                 opacity: 0,
-//                 stagger: 0.1,
-//                 ease: "power2.inOut",
-//             }, 'a')
-//             tl.from(".menu-icons2", {
-//                 y: 50,
-//                 duration: 1,
-//                 opacity: 0,
-//                 stagger: 0.1,
-//                 ease: "power2.inOut",
-//             }, 'a')
-//             tl.from(".menu-para", {
-//                 y: 50,
-//                 duration: 1,
-//                 opacity: 0,
-//                 delay: 0.4,
-//                 stagger: 0.1,
-//                 ease: "power2.inOut",
-//             }, 'a')
-//             status = "open"
-//         }
-//     console.log(status);
-
-// });
-
-// close.addEventListener('click', () => {
-//     if (status == "open") {
-//         menu.classList.add("hidden");
-
-
-//         status = "close"
-//     }
-//     console.log(status);
-
-// });
-
+    console.log(status)
+})
