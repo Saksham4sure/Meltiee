@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+.logo {
+    font-family: "Mrs Saint Delafield", cursive;
+  }
+
+body, nav, .normal {
+    font-family: "Inter", sans-serif;
+}
+.home {
+  font-family: "Chelsea Market", system-ui;
+}
+
+.logo2 {
+  font-family: "Cinzel", serif;
+
+}
+
+.lexend {
+  font-family: "Lexend Zetta", sans-serif;
+}
+
+/* .hero-text {
+  text-shadow: 1px 1px 4px #3e3e3e;
+} */
+
+.menu{
+  z-index: 999;
+}
