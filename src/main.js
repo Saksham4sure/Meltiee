@@ -1,5 +1,22 @@
 import 'remixicon/fonts/remixicon.css'
-import gsap from "gsap";
+import { gsap } from "gsap"; 
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import Lenis from '@studio-freight/lenis'
+
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smooth: true,
+    smoothTouch: true, 
+  })
+
+  function raf(time) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
+
+  requestAnimationFrame(raf)
 
 
 let images = [
@@ -172,7 +189,7 @@ burger.addEventListener("click", () => {
         lt.to(menu, {
             y: `-100%`
         }, "a")
-        
+
         burger.innerHTML = `<i class="ri-menu-line text-2xl"></i>`
 
         status = !status
@@ -224,4 +241,40 @@ burger.addEventListener("click", () => {
     }
 
     console.log(status)
+})
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.from(".heading", {
+    scale: 0,
+    opacity: 0,
+    y: 40,
+    scrollTrigger: {
+        trigger: ".about",
+        start: "top bottom",
+        end: "top 50%",
+        scrub: true,
+    }
+})
+
+gsap.from(".card-image", {
+    opacity: 0,
+    x: -400,
+    scrollTrigger: {
+        trigger: ".about",
+        start: "top bottom",
+        end: "top 50%",
+        scrub: true,
+    }
+})
+
+gsap.to(".card-image", {
+    scale: 0.4,
+    y: 470,
+    ease: "power2.inOut",
+    scrollTrigger: {
+        trigger: ".about",
+        start: "top -10%",
+        end: "bottom -10%",
+        scrub: true,
+    }
 })

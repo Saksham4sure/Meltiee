@@ -4,7 +4,9 @@
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Cherry+Cream+Soda&family=Chewy&family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Zetta:wght@100..900&family=Mrs+Saint+Delafield&family=Oswald:wght@200..700&family=Pacifico&family=Rouge+Script&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Cherry+Cream+Soda&family=Chewy&family=Cinzel:wght@400..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend+Zetta:wght@100..900&family=Mrs+Saint+Delafield&family=Oswald:wght@200..700&family=Pacifico&family=Rouge+Script&display=swap"
+    rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="/src/style.css" rel="stylesheet">
@@ -20,8 +22,8 @@
       <div class="flex">
         <div class="flex flex-col text-4xl gap-10 items-center w-full ">
           <a href="#" class="menu-icons uppercase font-['Oswald']">Home</a>
-          <a href="#" class="menu-icons uppercase font-['Oswald']">Menu</a>
           <a href="#" class="menu-icons uppercase font-['Oswald']">About</a>
+          <a href="#" class="menu-icons uppercase font-['Oswald']">Menu</a>
           <a href="#" class="menu-icons uppercase font-['Oswald']">Events</a>
           <a href="#" class="menu-icons uppercase font-['Oswald']">Get yours</a>
         </div>
@@ -65,29 +67,60 @@
   </div>
 
 
-  <div class="w-full h-[100vh]">
-    <div class="flex flex-col items-center justify-center py-16">
+  <div class="w-full px-10 pb-10 about overflow-hidden">
+    <div class="flex flex-col items-center justify-center py-10">
+      <h1 class="heading text-6xl">about</h1>
+    </div>
+    <div class="flex flex-col items-center justify-center gap-5 md:gap-10">
+      <div class="card-image">
+        <img class="h-[400px] object-cover" src="/src/profile.jpg">
+      </div>
+      <div class="md:w-1/2 text-center z-10">
+        <p class="">Welcome to Meltiee, a cozy little spot where we serve up joy in the form of freshly baked treats,
+          creamy handcrafted ice creams, and refreshing drinks. Built on a love for simple pleasures and honest
+          ingredients, Meltiee is all about creating moments that melt your heart—whether you're here for a sweet
+          escape, a cool refresh, or a warm bite of comfort.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="bg-[#FDF5EF] py-16 text-center px-4 z-20">
+    <h2 class="text-3xl font-bold mb-4 subheading">Crafted with Care</h2>
+    <p class="max-w-2xl mx-auto text-gray-700 text-lg">
+      At Meltiee, we do more than just serve food — we create cozy moments. From our ovens to our blenders, every item
+      is thoughtfully made to bring a little warmth and delight into your day.
+    </p>
+  </section>
+
+
+
+  <div class="w-full h-[100vh] menu-section">
+    <div class="flex flex-col items-center justify-center py-10 md:py-16">
       <h1 class="heading text-6xl">menu</h1>
       <p class="subheading text-3xl md:text-5xl pt-2">sweet moments start here</p>
       <p class="subheading text-2xl">grab yours now</p>
     </div>
-    <div class="flex flex-col md:flex-row w-full gap-10 lg:px-24 px-10">
-      <div class="bg-[#f1dece] md:w-1/3 text-center flex flex-col items-center justify-center py-10 rounded-full border border-stone-300 cursor-pointer">
-        <i class="ri-bread-fill text-8xl text-stone-800"></i>
+    <div class="flex flex-col md:flex-row w-full md:gap-10 lg:px-24 px-10">
+      <div class=" md:w-1/3 text-center flex flex-col items-center justify-center py-10  cursor-default itemss"
+        data-id="1">
+        <i class="ri-bread-fill text-8xl text-stone-600 cursor-pointer"></i>
         <h1 class="titles pt-4 text-3xl">Bakery</h1>
         <p class="text-stone-600 text-lg">Fresh Bakes, Warm Hearts</p>
         <a class="mt-4  py-1 px-3 border border-stone-900 rounded-full text-sm" href="#">View Fresh Bakes</a>
       </div>
 
-      <div class="bg-[#FFEFF6] md:w-1/3 text-center flex flex-col items-center justify-center py-10 rounded-full border border-stone-300 cursor-pointer">
-        <i class="ri-cake-3-fill text-8xl text-stone-800"></i>
+      <div class=" md:w-1/3 text-center flex flex-col items-center justify-center py-10  cursor-default itemss"
+        data-id="2">
+        <i class="ri-cake-3-fill text-8xl text-stone-600 cursor-pointer"></i>
         <h1 class="titles pt-4 text-3xl">Ice-Cream</h1>
         <p class="text-stone-600 text-lg">Scoop Your Happy</p>
         <a class="mt-4  py-1 px-3 border border-stone-900 rounded-full text-sm" href="#">Explore Flavors</a>
       </div>
 
-      <div class="bg-[#E6F4F1] md:w-1/3 text-center flex flex-col items-center justify-center py-10 rounded-full border border-stone-300 cursor-pointer">
-        <i class="ri-drinks-2-fill text-8xl text-stone-800"></i>
+      <div class=" md:w-1/3 text-center flex flex-col items-center justify-center py-10  cursor-default itemss"
+        data-id="3">
+        <i class="ri-drinks-2-fill text-8xl text-stone-600 cursor-pointer"></i>
         <h1 class="titles pt-4 text-3xl">Drinks</h1>
         <p class="text-stone-600 text-lg">Sip Something Sweet</p>
         <a class="mt-4  py-1 px-3 border border-stone-900 rounded-full text-sm" href="#">See the Sips</a>
