@@ -146,6 +146,7 @@ burger.addEventListener("click", () => {
     if (status) {
         // of Code
 
+
         let lt = gsap.timeline({
             onComplete: () => {
                 burger.style.pointerEvents = 'unset'
@@ -171,6 +172,9 @@ burger.addEventListener("click", () => {
         lt.to(menu, {
             y: `-100%`
         }, "a")
+        
+        burger.innerHTML = `<i class="ri-menu-line text-2xl"></i>`
+
         status = !status
     }
     else {
@@ -191,6 +195,9 @@ burger.addEventListener("click", () => {
             y: `50%`,
             opacity: 0
         })
+
+        burger.innerHTML = `<i class="ri-close-large-line text-2xl"></i>`
+
 
         //off code
         tl.to(navbar, {

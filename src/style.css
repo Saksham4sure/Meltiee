@@ -7,17 +7,20 @@
 body, nav, .normal {
     font-family: "Inter", sans-serif;
 }
-.home {
+.home, .heading {
   font-family: "Chelsea Market", system-ui;
 }
 
-.logo2 {
+.logo2, .titles {
   font-family: "Cinzel", serif;
-
 }
 
 .lexend {
   font-family: "Lexend Zetta", sans-serif;
+}
+
+.subheading{
+  font-family: "Chewy", system-ui;
 }
 
 /* .hero-text {
