@@ -19,11 +19,12 @@ body, nav, .normal {
   font-family: "Lexend Zetta", sans-serif;
 }
 
-.subheading{
+.subheading, .ahaha{
   font-family: "Chewy", system-ui;
 }
 
-
+.menu {
+}
 .card-image {
   z-index: 10px;
 }

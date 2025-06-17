@@ -1,5 +1,5 @@
 import 'remixicon/fonts/remixicon.css'
-import { gsap } from "gsap"; 
+import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Lenis from '@studio-freight/lenis'
@@ -10,13 +10,13 @@ const lenis = new Lenis({
     gestureDirection: 'both',
     smoothTouch: true,
     touchMultiplier: 0.5,
-  })
-  function raf(time) {
+})
+function raf(time) {
     lenis.raf(time)
     requestAnimationFrame(raf)
-  }
+}
 
-  requestAnimationFrame(raf)
+requestAnimationFrame(raf)
 
 
 let images = [
@@ -245,9 +245,9 @@ burger.addEventListener("click", () => {
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.from(".heading", {
-    scale: 0,
     opacity: 0,
-    y: 40,
+    y: 70,
+    ease: "expo.inOut",
     scrollTrigger: {
         trigger: ".about",
         start: "top bottom",
@@ -257,8 +257,7 @@ gsap.from(".heading", {
 })
 
 gsap.from(".card", {
-    opacity: 0,
-    x: -400,
+    x: -800,
     scrollTrigger: {
         trigger: ".about",
         start: "top bottom",
@@ -285,46 +284,67 @@ gsap.set(".menu-card", {
 
 
 if (window.innerWidth >= 1024) {
-  let jl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".menu-section",
-      start: "top 50%",
-      end: "10% 10%",
-      scrub: true,
-    },
-  });
+    let jl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".menu-section",
+            start: "top 50%",
+            end: "10% 10%",
+            scrub: true,
+        },
+    });
 
-  jl.from(".menu-card", {
-    y: -700,
-    scale: 0.4,
-    stagger: 0.1,
-    ease: "power1.out"
-  });
+    jl.from(".menu-card", {
+        y: -700,
+        scale: 0.4,
+        stagger: 0.1,
+        ease: "power1.out"
+    });
 
-  jl.to(".menu-card", {
-    rotateY: 0,
-    stagger: 0.1,
-    ease: "power1.inOut"
-  });
+    jl.to(".menu-card", {
+        rotateY: 0,
+        stagger: 0.1,
+        ease: "power1.inOut"
+    });
 
 } else {
 
-  let jl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".menu-section",
-      start: "top 50%",
-      end: "60% top",
-      scrub: true,
-    },
-  });
+    let jl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".menu-section",
+            start: "top 50%",
+            end: "60% top",
+            scrub: true,
+        },
+    });
 
-  jl.from(".menu-card", {
-    y: 300,
-    ease: "power1.out"
-  });
-  jl.to(".menu-card", {
-    rotateY: 0,
-    stagger: 0.3,
+    jl.from(".menu-card", {
+        y: 300,
+        ease: "power1.out"
+    });
+    jl.to(".menu-card", {
+        rotateY: 0,
+        stagger: 0.3,
+        ease: "power1.inOut"
+    });
+};
+
+let ml = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".menu-section",
+        start: "top 105%",
+        end: "20% 60%",
+        scrub: true,
+    },
+})
+
+ml.from(".heading", {
+    y: 100,
+    opacity: 0.4,
     ease: "power1.inOut"
-  });
-}
+})
+ml.from(".subheading", {
+    y: 100,
+    stagger: 0.1,
+    opacity: 0.4,
+    ease: "power1.inOut"
+})
