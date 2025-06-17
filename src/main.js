@@ -256,7 +256,7 @@ gsap.from(".heading", {
     }
 })
 
-gsap.from(".card-image", {
+gsap.from(".card", {
     opacity: 0,
     x: -400,
     scrollTrigger: {
@@ -267,14 +267,15 @@ gsap.from(".card-image", {
     }
 })
 
-gsap.to(".card-image", {
+gsap.to(".card", {
     scale: 0.4,
     y: 470,
-    ease: "power2.inOut",
+    rotateY: 180,
+    ease: "expo.inOut",
     scrollTrigger: {
         trigger: ".about",
-        start: "top -10%",
-        end: "bottom -10%",
+        start: "top 0%",
+        end: "bottom -20%",
         scrub: true,
     }
 })
