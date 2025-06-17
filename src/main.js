@@ -5,12 +5,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from '@studio-freight/lenis'
 
 const lenis = new Lenis({
-    duration: 1.2,
-    easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smooth: true,
-    smoothTouch: true, 
+    lerp: 0.05,
+    gestureDirection: 'both',
+    smoothTouch: true,
+    touchMultiplier: 0.5,
   })
-
   function raf(time) {
     lenis.raf(time)
     requestAnimationFrame(raf)
@@ -269,7 +269,7 @@ gsap.from(".card", {
 
 gsap.to(".card", {
     scale: 0.4,
-    y: 470,
+    y: 550,
     rotateY: 180,
     ease: "expo.inOut",
     scrollTrigger: {
@@ -279,3 +279,52 @@ gsap.to(".card", {
         scrub: true,
     }
 })
+gsap.set(".menu-card", {
+    rotateY: 180,
+})
+
+
+if (window.innerWidth >= 1024) {
+  let jl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".menu-section",
+      start: "top 50%",
+      end: "10% 10%",
+      scrub: true,
+    },
+  });
+
+  jl.from(".menu-card", {
+    y: -700,
+    scale: 0.4,
+    stagger: 0.1,
+    ease: "power1.out"
+  });
+
+  jl.to(".menu-card", {
+    rotateY: 0,
+    stagger: 0.1,
+    ease: "power1.inOut"
+  });
+
+} else {
+
+  let jl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".menu-section",
+      start: "top 50%",
+      end: "60% top",
+      scrub: true,
+    },
+  });
+
+  jl.from(".menu-card", {
+    y: 300,
+    ease: "power1.out"
+  });
+  jl.to(".menu-card", {
+    rotateY: 0,
+    stagger: 0.3,
+    ease: "power1.inOut"
+  });
+}
